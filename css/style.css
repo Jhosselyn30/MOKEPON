@@ -1,0 +1,87 @@
+@import url('https://fonts.googleapis.com/css2?family=Wellfleet&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Wellfleet&display=swap');
+
+
+body{
+    font-family: "Poppins", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    background-color: #041562;
+}
+
+#seleccionar-mascota{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.titulo {
+    color: white;
+    font-size: 32px;
+    font-family: "Wellfleet", monospace;
+
+}
+
+.subtitulo{
+    color: white;
+    font-size: 20px;
+}
+
+.tarjetas {
+    display: flex;
+    gap:10px;
+}
+
+.tarjeta-de-mokepon{
+    width: 180px;
+    height: 100px;
+    background: #114685;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 20px;
+    display: flex;
+    color:white;
+    justify-content: center;
+    align-items: center;
+
+    transition: transform 0.2s; 
+    cursor: pointer; 
+    margin: 10px;
+}
+
+.tarjeta-de-mokepon:hover{
+    transform: scale(1.2);
+}
+
+input[type="radio"]:checked + label {
+    background-color: #ffa500; /* Color al hacer clic */
+}
+
+.tarjeta-de-mokepon img {
+    width: 80px;
+}
+
+#boton-mascota{
+    width: 180px;
+    height: 40px;
+    border-radius: 20px;
+    background: transparent;
+    border: 2px solid white;
+    color: white;
+    font-family: "Poppins", sans-serif;
+    margin-top: 30px;
+
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s;
+}
+
+#boton-mascota:hover{
+    background-color: white;
+    color:black;
+}
+
+input{
+    display: none;
+}
+
+
