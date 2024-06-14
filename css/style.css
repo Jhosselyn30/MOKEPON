@@ -27,7 +27,7 @@ body{
     font-size: 20px;
 }
 
-.tarjetas {
+.tarjetas, .tarjetas-ataques {
     display: flex;
     gap:10px;
 }
@@ -84,4 +84,84 @@ input{
     display: none;
 }
 
+
+#seleccionar-ataque {
+    flex-direction: column;
+    align-items: center;
+}
+
+.boton-de-ataque{
+    background-color: #114685;
+    padding: 10px;
+    box-sizing: border-box; /*para que el padding no modifique el tamaño original*/
+    border-radius: 20px;
+    border-color: transparent;
+    width: 100px;
+    color:white;
+    font-family: "Poppins", sans-serif;
+
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s;
+}
+
+.boton-de-ataque:hover{
+    background-color: white;
+    color:black;
+}
+
+#mensajes{
+    width: 280px;
+    background-color: #EEEEEE;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+#boton-reiniciar{
+    border-radius: 20px;
+    border-color: transparent;
+    background-color: gainsboro;
+    color:black;
+    font-family: "Poppins", sans-serif;
+
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    transition: background-color 0.3s;
+
+}
+
+#boton-reiniciar:hover{
+    background-color:#ffa500 ;
+    color:black;
+}
+
+
+.ataques{
+    display: grid;
+    grid-template-columns: 100px 100px;
+    color:white;
+}
+
+#vidas-jugador, #vidas-enemigo{
+    font-size: 32px;
+    margin-bottom:0;
+}
+
+.ataques-jugador, .ataques-enemigo{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+@media (max-width: 360px){
+    .tarjetas{
+        flex-direction: column;
+    }
+    .tarjetas-ataques{
+        flex-direction: column;
+    }
+}
 
