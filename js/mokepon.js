@@ -59,6 +59,11 @@ let capipepo = new Mokepon('Capipepo','./assets/mokepons_mokepon_capipepo_attack
 
 let ratigueya = new Mokepon('Ratigueya','./assets/mokepons_mokepon_ratigueya_attack.png',5)
 
+let langostelvis = new Mokepon('Langostelvis','./assets/mokepons_mokepon_langostelvis_attack.png',5)
+
+let tucapalma = new Mokepon('Tucapalma','./assets/mokepons_mokepon_tucapalma_attack.png',5)
+
+let pydos = new Mokepon('Pydos','./assets/mokepons_mokepon_pydos_attack.png',5)
 
 hipodoge.ataques.push(
     {nombre: '💧',id:'boton-agua'},
@@ -84,7 +89,31 @@ ratigueya.ataques.push(
     {nombre: '🌱',id:'boton-tierra'} 
 )
 
-mokepones.push(hipodoge,capipepo,ratigueya)//poner valores en el arreglo con el método push
+langostelvis.ataques.push(
+    {nombre: '🔥',id:'boton-fuego'},
+    {nombre: '🔥',id:'boton-fuego'},
+    {nombre: '💧',id:'boton-fuego'},
+    {nombre: '💧',id:'boton-agua'},
+    {nombre: '🌱',id:'boton-tierra'} 
+)
+
+tucapalma.ataques.push(
+    {nombre: '💧',id:'boton-fuego'},
+    {nombre: '💧',id:'boton-agua'},
+    {nombre: '💧',id:'boton-fuego'},
+    {nombre: '🔥',id:'boton-fuego'},
+    {nombre: '🌱',id:'boton-tierra'} 
+)
+
+pydos.ataques.push(
+    {nombre: '🌱',id:'boton-fuego'},
+    {nombre: '🌱',id:'boton-fuego'},
+    {nombre: '🌱',id:'boton-fuego'},
+    {nombre: '💧',id:'boton-agua'},
+    {nombre: '🔥',id:'boton-tierra'} 
+)
+
+mokepones.push(hipodoge,capipepo,ratigueya,langostelvis,tucapalma,pydos)//poner valores en el arreglo con el método push
 
 function iniciarJuego(){
     sectionSeleccionarAtaque.style.display = 'none'
@@ -104,6 +133,9 @@ function iniciarJuego(){
         inputHipodoge = document.getElementById('Hipodoge')
         inputCapipepo = document.getElementById('Capipepo')
         inputRatigueya = document.getElementById('Ratigueya')
+        inputLangostelvis = document.getElementById('Langostelvis')
+        inputTucapalma = document.getElementById('Tucapalma')
+        inputPydos = document.getElementById('Pydos')
     })
 
     sectionReiniciar.style.display='none'
@@ -125,9 +157,19 @@ function seleccionarMascotaJugador(){
     } else if (inputRatigueya.checked){
         spanMascotaJugador.innerHTML = inputRatigueya.id
         mascotaJugador = inputRatigueya.id 
+    } else if (inputLangostelvis.checked){
+        spanMascotaJugador.innerHTML = inputLangostelvis.id
+        mascotaJugador = inputLangostelvis.id 
+    } else if (inputTucapalma.checked){
+        spanMascotaJugador.innerHTML = inputTucapalma.id
+        mascotaJugador = inputTucapalma.id 
+    } else if (inputPydos.checked){
+        spanMascotaJugador.innerHTML = inputPydos.id
+        mascotaJugador = inputPydos.id 
     } else {
         alert ('No seleccionaste ninguna mascota')
     }
+    
     extraerAtaques(mascotaJugador)
     seleccionarMascotaEnemigo()
 }

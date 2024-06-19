@@ -31,11 +31,17 @@ body{
     display: flex;
     gap:10px;
 }
+#contenedorTarjetas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centra las tarjetas horizontalmente */
+} 
 
 .tarjeta-de-mokepon{
-    width: 180px;
-    height: 100px;
-    background: #114685;
+    flex: 0 1 calc(33.333% - 20px);
+    width: 90px;
+    height: 90px;
+    background-color: #114685;
     padding: 10px;
     box-sizing: border-box;
     border-radius: 20px;
@@ -69,7 +75,7 @@ input[type="radio"]:checked + label {
     border: 2px solid white;
     color: white;
     font-family: "Poppins", sans-serif;
-    margin-top: 30px;
+    margin-top: 15px;
 
     cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
     transition: background-color 0.3s;
