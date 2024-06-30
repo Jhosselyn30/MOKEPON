@@ -21,6 +21,9 @@ class Jugador {
         this.x = x
         this.y = y
     }
+    asignarAtaques(ataques){
+        this.ataques=ataques
+    }
 }
 
 class Mokepon {
@@ -67,6 +70,22 @@ app.post("/mokepon/:jugadorId/posicion",(req,res)=>{
         jugadores[jugadorIndex].actualizarPosicion(x,y)
     }
 
+    const enemigos = jugadores.filter((jugador)=>jugadorId !== jugador.id)//DEVUELVE TODOS LOS ENEMIGOS 
+
+    res.send({
+        enemigos
+    })//en express solo se devuelve JSON
+})
+
+app.post("/mokepon/:jugadorId/ataques",(req,res)=>{
+    const jugadorId = req.params.jugadorId || ""
+    const ataques = req.body.ataques || []
+
+    const jugadorIndex = jugadores.findIndex((jugador)=> jugadorId === jugador.id)
+
+    if (jugadorIndex >=0){
+        jugadores[jugadorIndex].asignarAtaques(ataques)
+    }
     res.end()
 })
 
