@@ -1,7 +1,11 @@
 const express = require("express") //libreria express importada 
 const cors = require("cors")
+//const port = 8080;
 
 const app = express()//apliacion con express 
+
+
+app.use(express.static('public'))
 
 app.use(cors())
 app.use(express.json())//habilitar para poder recibir peticiones post
@@ -89,9 +93,22 @@ app.post("/mokepon/:jugadorId/ataques",(req,res)=>{
     res.end()
 })
 
-app.listen(8080, ()=> {
-    console.log("Servidor funcionando")//escuche en el puerto las peticiones 
+app.get("/mokepon/:jugadorId/ataques",(req,res)=>{
+    const jugadorId = req.params.jugadorId || ""
+    const jugador = jugadores.find((jugador)=>jugador.id === jugadorId)
+    res.send({
+        ataques: jugador.ataques || []
+    }
+    )
 })
+
+app.listen(8080, () => {
+    console.log("Servidor funcionando")
+  })
+
+/*app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor funcionando en http://0.0.0.0:${port}`); // escuche en el puerto las peticiones 
+}); */
 
 //ctrl c : apagar servidor
 

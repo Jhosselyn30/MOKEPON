@@ -229,7 +229,7 @@ function unirseAlJuego(){//peticion al servidor
 }
 
 function seleccionarMascotaJugador(){
-    sectionSeleccionarMascota.style.display = 'none'
+    
 
     if (inputHipodoge.checked){
         spanMascotaJugador.innerHTML = inputHipodoge.id//un input es un objeto, por eso se puede acceder a sus propiedades de esta manera
@@ -251,6 +251,7 @@ function seleccionarMascotaJugador(){
         mascotaJugador = inputPydos.id 
     } else {
         alert ('No seleccionaste ninguna mascota')
+        return 
     }
     seleccionarMokepon(mascotaJugador)
 
@@ -335,7 +336,24 @@ function enviarAtaques(){
             ataques: ataqueJugador
         })
     })
+
+    intervalo = setInterval(obtenerAtaques,50)
 }
+
+function obtenerAtaques(){
+    fetch(`http://localhost:8080/mokepon/${enemigoId}/ataques`)
+        .then(function(res){
+            if(res.ok){
+                res.json()
+                    .then(function({ataques}){
+                        if (ataques.length === 5){
+                            ataqueEnemigo = ataques
+                            combate()
+                        }
+                    })
+            }
+        })
+    }
 
 function  seleccionarMascotaEnemigo(enemigo){
     spanMascotaEnemigo.innerHTML = enemigo.nombre
@@ -371,6 +389,8 @@ function indexAmbosOponentes(jugador,enemigo){
 }
 
 function combate(){
+    clearInterval(intervalo)
+
     for (let index = 0; index < ataqueJugador.length; index++) {
         if (ataqueJugador[index]=== ataqueEnemigo[index]){
             indexAmbosOponentes(index,index)
@@ -589,5 +609,5 @@ function revisarColision(enemigo){
     sectionVerMapa.style.display = 'none'
     seleccionarMascotaEnemigo(enemigo)
 }
-    //alert("COLISION!!! "+ enemigo.nombre)
+
 window.addEventListener('load',iniciarJuego)  
